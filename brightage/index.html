@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ブライトエイジ</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .input-group { margin-bottom: 10px; }
+        label { display: inline-block; width: 100px; }
+    </style>
+  </head>
+  <body>
+    <div class="input-group">
+        <label for="nameInput">会員名:</label>
+        <input type="text" id="nameInput">
+    </div>
+
+    <div class="input-group">
+        <label for="idInput">会員番号:</label>
+        <input type="text" id="idInput">
+    </div>
+
+    <button id="applyBtn">適用</button>
+
+    <script>
+        // JS変数の宣言
+        var customerName;
+        var customerID;
+
+        // 初期設定を行う関数
+        function initialize() {
+            const nameField = document.getElementById('nameInput');
+            const idField = document.getElementById('idInput');
+
+            // 1. フィールドに初期値を代入
+            nameField.value = "ブライトエイジ";
+            idField.value = "BrightAge12345";
+
+            // 2. JS変数に保存
+            saveToVariables();
+            
+            console.log("初期化完了:", { customerName, customerID });
+        }
+
+        // 入力値を変数に保存する共通処理
+        function saveToVariables() {
+            customerName = document.getElementById('nameInput').value;
+            customerID = document.getElementById('idInput').value;
+        }
+
+        // 適用ボタンのクリックイベント
+        document.getElementById('applyBtn').addEventListener('click', function() {
+            saveToVariables();
+            alert("変数を更新しました！\n名前: " + customerName + "\n番号: " + customerID);
+            console.log("更新後:", { customerName, customerID });
+        });
+
+        // ページ読み込み時に初期化を実行
+        window.onload = initialize;
+    </script>
+    <script type="module" src="https://us01ccistatic.zoom.us/us01cci/web-sdk/zcc-sdk.js" data-apikey="y1UfOZoFSLSLsQ47bzuIaw" data-env="us01"></script>
+  </body>
+</html>
